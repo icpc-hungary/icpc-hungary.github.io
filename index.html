@@ -1,11 +1,786 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-  		<title>ICPC Hungary</title>
-  			<meta charset="UTF-8" />
-  			<meta http-equiv="refresh" content="1; URL=https://icpc-hungary.github.io/2026/" />
-  	</head>
-  	<body>
-  		<p>Redirecting to <a href="https://icpc-hungary.github.io/2026/">ICPC Hungary 2026</a> final results.</p>
-  	</body>
-  </html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICPC Hungary — International Collegiate Programming Contest, Hungarian stage</title>
+<meta name="description" content="ICPC Hungary is the Hungarian stage of the International Collegiate Programming Contest. Past scoreboards, contest rules, venues and the next edition in fall 2027.">
+<link rel="icon" href="favicon.ico">
+<meta property="og:title" content="ICPC Hungary">
+<meta property="og:description" content="The Hungarian stage of the International Collegiate Programming Contest. Next edition: fall 2027.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --icpc-blue: #4a82c3;
+    --icpc-red: #b12a1c;
+    --icpc-yellow: #feba12;
+    --navy: #012851;
+    --navy-soft: #0b3a6b;
+    --ink: #16202b;
+    --ink-muted: #55616f;
+    --line: #dfe4ea;
+    --surface: #ffffff;
+    --surface-alt: #f5f7fa;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(1, 40, 81, .06), 0 8px 24px rgba(1, 40, 81, .07);
+    --wrap: 1120px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--surface);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { line-height: 1.2; margin: 0; letter-spacing: -.015em; }
+  h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); font-weight: 800; }
+  h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); font-weight: 750; }
+  h3 { font-size: 1.1rem; font-weight: 700; }
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--navy-soft); text-underline-offset: 3px; }
+  a:hover { color: var(--icpc-red); }
+
+  :focus-visible {
+    outline: 3px solid var(--icpc-yellow);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
+
+  .skip {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: var(--navy); color: #fff; padding: 12px 20px; border-radius: 0 0 8px 0;
+  }
+  .skip:focus { left: 0; }
+
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .92);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; gap: 16px;
+    min-height: 68px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 11px;
+    font-weight: 800; font-size: 1.05rem; letter-spacing: -.01em;
+    color: var(--navy); text-decoration: none; white-space: nowrap;
+  }
+  .brand:hover { color: var(--navy); }
+  .brand img { width: auto; height: 30px; object-fit: contain; }
+  .brand span small {
+    display: block; font-size: .68rem; font-weight: 600;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--ink-muted);
+  }
+
+  .nav { margin-left: auto; }
+  .nav ul {
+    display: flex; align-items: center; gap: 4px;
+    list-style: none; margin: 0; padding: 0;
+  }
+  .nav a {
+    display: block; padding: 8px 12px; border-radius: 8px;
+    font-size: .92rem; font-weight: 600; color: var(--ink-muted); text-decoration: none;
+  }
+  .nav a:hover { color: var(--navy); background: var(--surface-alt); }
+
+  .nav-toggle {
+    display: none; margin-left: auto;
+    background: none; border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; cursor: pointer; color: var(--navy);
+  }
+  .nav-toggle svg { display: block; }
+
+  @media (max-width: 860px) {
+    .nav-toggle { display: block; }
+    .nav {
+      display: none; position: absolute; left: 0; right: 0; top: 100%;
+      background: #fff; border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow); padding: 8px 16px 16px;
+    }
+    .nav.open { display: block; }
+    .nav ul { flex-direction: column; align-items: stretch; gap: 2px; }
+    .nav a { padding: 12px; font-size: 1rem; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--navy);
+    color: #fff;
+    padding: clamp(56px, 9vw, 104px) 0 clamp(48px, 7vw, 80px);
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(760px 380px at 88% -8%, rgba(74, 130, 195, .55), transparent 70%),
+      radial-gradient(560px 320px at 4% 108%, rgba(177, 42, 28, .38), transparent 72%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; }
+  .hero-grid {
+    display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+    gap: clamp(28px, 5vw, 64px); align-items: center;
+  }
+  @media (max-width: 780px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: .76rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--icpc-yellow); margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: ""; width: 26px; height: 2px; background: var(--icpc-yellow); border-radius: 2px;
+  }
+
+  .hero h1 { color: #fff; }
+  .hero h1 em { font-style: normal; color: var(--icpc-yellow); }
+  .hero-lead {
+    margin-top: 18px; max-width: 46ch;
+    font-size: clamp(1.02rem, 1.6vw, 1.16rem); color: #c9d8ea;
+  }
+
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 13px 22px; border-radius: 10px;
+    font-size: .95rem; font-weight: 700; text-decoration: none;
+    border: 1.5px solid transparent; transition: transform .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--icpc-yellow); color: #2a1f00; }
+  .btn-primary:hover { background: #ffc93f; color: #2a1f00; }
+  .btn-ghost { border-color: rgba(255, 255, 255, .38); color: #fff; }
+  .btn-ghost:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+
+  .hero-facts {
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    margin-top: 34px; padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, .16);
+    font-size: .88rem; color: #a9c0da;
+  }
+  .hero-facts span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-facts svg { flex: none; opacity: .8; }
+
+  .hero-logo {
+    justify-self: center; width: 100%; max-width: 300px;
+    background: #fff; border-radius: 20px; padding: 26px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .3);
+  }
+  .hero-logo img { display: block; width: 100%; height: auto; }
+  @media (max-width: 780px) { .hero-logo { max-width: 220px; padding: 20px; } }
+
+  /* ---------- stats ---------- */
+  .stats { background: var(--surface-alt); border-bottom: 1px solid var(--line); }
+  .stats .wrap { padding-block: clamp(34px, 5vw, 52px); }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px; text-align: center;
+  }
+  @media (max-width: 700px) { .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  .stat-num {
+    display: block;
+    font-size: clamp(2rem, 4.6vw, 2.9rem); font-weight: 800;
+    line-height: 1; letter-spacing: -.03em; color: var(--navy);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-num .plus { color: var(--icpc-red); }
+  .stat-label {
+    display: block; margin-top: 8px;
+    font-size: .82rem; font-weight: 650; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--ink-muted);
+  }
+  .stats-note {
+    margin-top: 26px; text-align: center;
+    font-size: .86rem; color: var(--ink-muted);
+  }
+
+  /* ---------- sections ---------- */
+  section { scroll-margin-top: 84px; }
+  .section { padding-block: clamp(52px, 7vw, 84px); }
+  .section-alt { background: var(--surface-alt); }
+  .section-head { max-width: 62ch; margin-bottom: clamp(28px, 4vw, 44px); }
+  .section-head p { margin-top: 12px; color: var(--ink-muted); }
+
+  .kicker {
+    display: block; margin-bottom: 10px;
+    font-size: .76rem; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--icpc-red);
+  }
+
+  /* ---------- about cards ---------- */
+  .about-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px; margin-top: 32px;
+  }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px;
+  }
+  .card h3 { margin-bottom: 10px; color: var(--navy); }
+  .card p { font-size: .95rem; color: var(--ink-muted); }
+  .card .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 14px; font-size: .9rem; font-weight: 700; text-decoration: none;
+  }
+  .card .card-link:hover { text-decoration: underline; }
+
+  .format-list {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px; margin: 32px 0 0; padding: 0; list-style: none;
+  }
+  @media (max-width: 900px) { .format-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .format-list { grid-template-columns: 1fr; } }
+  .format-list li {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px 18px;
+    font-size: .9rem; color: var(--ink-muted);
+  }
+  .format-list strong { display: block; color: var(--navy); font-size: .95rem; margin-bottom: 3px; }
+
+  /* ---------- next edition ---------- */
+  .next {
+    position: relative; overflow: hidden;
+    background: var(--navy); color: #fff;
+    border-radius: 20px; padding: clamp(30px, 5vw, 52px);
+  }
+  .next::after {
+    content: ""; position: absolute; right: -90px; top: -90px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(254, 186, 18, .3), transparent 68%);
+    pointer-events: none;
+  }
+  .next > * { position: relative; }
+  .next h2 { color: #fff; }
+  .next .kicker { color: var(--icpc-yellow); }
+  .next p { color: #c2d4e8; max-width: 60ch; }
+  .next-meta {
+    display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0;
+    padding: 0; list-style: none;
+  }
+  .next-meta li {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 999px; padding: 8px 16px;
+    font-size: .87rem; font-weight: 600; color: #e6eefa;
+  }
+  .next-meta svg { flex: none; color: var(--icpc-yellow); }
+  .next .btn { margin-top: 28px; }
+
+  /* ---------- past editions ---------- */
+  .table-scroll {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    background: var(--surface); border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  table.editions {
+    width: 100%; border-collapse: collapse; font-size: .93rem;
+    background: var(--surface);
+  }
+  table.editions caption {
+    caption-side: bottom; padding-top: 14px;
+    font-size: .84rem; color: var(--ink-muted); text-align: left;
+  }
+  .table-note {
+    margin: 14px 0 0; font-size: .84rem; color: var(--ink-muted);
+  }
+  table.editions th, table.editions td {
+    padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  table.editions thead th {
+    background: var(--navy); color: #fff;
+    font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  table.editions tbody tr:last-child td,
+  table.editions tbody tr:last-child th { border-bottom: 0; }
+  table.editions tbody tr:hover { background: #f8fafc; }
+  table.editions .year { font-weight: 800; color: var(--navy); font-size: 1rem; }
+  table.editions .num { font-variant-numeric: tabular-nums; }
+  table.editions .winner { white-space: normal; min-width: 190px; }
+  table.editions .winner small { display: block; color: var(--ink-muted); font-size: .82rem; }
+  table.editions tr.latest { background: #fffdf3; }
+  table.editions tr.latest:hover { background: #fffaeb; }
+
+  .badge {
+    display: inline-block; margin-left: 8px; padding: 2px 8px;
+    border-radius: 999px; font-size: .66rem; font-weight: 800;
+    letter-spacing: .07em; text-transform: uppercase; vertical-align: 2px;
+    background: var(--icpc-yellow); color: #3a2a00;
+  }
+
+  .score-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-weight: 700; font-size: .88rem; text-decoration: none; white-space: nowrap;
+  }
+  .score-link:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    table.editions, table.editions thead, table.editions tbody,
+    table.editions tr, table.editions th, table.editions td { display: block; }
+    .table-scroll { background: none; box-shadow: none; border-radius: 0; overflow: visible; }
+    table.editions thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    table.editions tbody tr {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    table.editions tbody tr.latest { border-color: #f0d68a; }
+    table.editions th, table.editions td {
+      padding: 0; border: 0; white-space: normal;
+    }
+    table.editions .year { font-size: 1.15rem; margin-bottom: 10px; }
+    table.editions td {
+      display: flex; justify-content: space-between; gap: 16px;
+      padding: 5px 0; font-size: .9rem;
+    }
+    table.editions td::before {
+      content: attr(data-label);
+      font-size: .74rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--ink-muted);
+      flex: none; padding-top: 2px;
+    }
+    table.editions .winner { text-align: right; }
+    table.editions .winner small { text-align: right; }
+    table.editions td.winner { display: block; text-align: left; }
+    table.editions td.winner::before {
+      content: attr(data-label); display: block; margin-bottom: 2px; text-align: left;
+    }
+    table.editions td.winner small { text-align: left; }
+  }
+
+  /* ---------- venues ---------- */
+  .venues {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  @media (max-width: 760px) { .venues { grid-template-columns: 1fr; } }
+
+  .venue {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 24px;
+  }
+  .venue img {
+    flex: none; width: 62px; height: 62px; object-fit: contain;
+  }
+  .venue h3 { color: var(--navy); margin-bottom: 4px; }
+  .venue .venue-city {
+    font-size: .78rem; font-weight: 700; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--icpc-red); margin-bottom: 8px;
+  }
+  .venue p { font-size: .92rem; color: var(--ink-muted); }
+
+  /* ---------- sponsors ---------- */
+  .sponsors {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px; align-items: stretch;
+  }
+  @media (max-width: 760px) { .sponsors { grid-template-columns: 1fr; } }
+
+  .sponsor {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; min-height: 150px; padding: 26px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); text-decoration: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .sponsor:hover { border-color: #c3cedb; box-shadow: var(--shadow); }
+  .sponsor img { max-width: 100%; max-height: 54px; width: auto; height: auto; object-fit: contain; }
+  .sponsor .sponsor-name {
+    font-size: .78rem; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--ink-muted); text-align: center;
+  }
+
+  /* ---------- footer ---------- */
+  .site-footer {
+    background: var(--navy); color: #a9c0da;
+    padding-block: 44px 36px; font-size: .9rem;
+  }
+  .footer-grid {
+    display: flex; flex-wrap: wrap; gap: 28px 48px;
+    justify-content: space-between; align-items: flex-start;
+  }
+  .site-footer .brand { color: #fff; }
+  .site-footer .brand:hover { color: #fff; }
+  .site-footer .brand span small { color: #8fa9c6; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; }
+  .footer-links a { color: #d3e2f2; text-decoration: none; font-weight: 600; }
+  .footer-links a:hover { color: var(--icpc-yellow); text-decoration: underline; }
+  .footer-note {
+    margin-top: 30px; padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+    font-size: .82rem; color: #8fa9c6;
+  }
+  .footer-note a { color: #b9cde3; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/img/icpc-mark.png" alt="" width="900" height="470">
+      <span>ICPC Hungary<small>Collegiate Programming</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#next">2027</a></li>
+        <li><a href="#editions">Past editions</a></li>
+        <li><a href="#venues">Venues</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Hungarian stage of the ICPC</span>
+          <h1>ICPC <em>Hungary</em></h1>
+          <p class="hero-lead">
+            The national round of the International Collegiate Programming Contest, organised by the
+            ELTE Faculty of Informatics and hosted in Budapest and Szeged. Teams of three students
+            share one computer to solve as many algorithmic problems as they can.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#next">
+              ICPC Hungary 2027
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="2026/">Latest results — 2026</a>
+          </div>
+          <div class="hero-facts">
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+              Fall 2027
+            </span>
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              Budapest &amp; Szeged
+            </span>
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M15 20a5 5 0 0 1 6.5-4.8"/></svg>
+              Teams of three
+            </span>
+          </div>
+        </div>
+        <div class="hero-logo">
+          <img src="assets/img/icpc-logo.png" alt="ICPC — International Collegiate Programming Contest" width="900" height="643">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div>
+          <span class="stat-num">55<span class="plus">+</span></span>
+          <span class="stat-label">Teams</span>
+        </div>
+        <div>
+          <span class="stat-num">159<span class="plus">+</span></span>
+          <span class="stat-label">Participants</span>
+        </div>
+        <div>
+          <span class="stat-num">5<span class="plus">+</span></span>
+          <span class="stat-label">Institutions</span>
+        </div>
+        <div>
+          <span class="stat-num">4</span>
+          <span class="stat-label">Editions on record</span>
+        </div>
+      </div>
+      <p class="stats-note">
+        Peak edition figures, from ICPC Hungary 2025 — the largest contest so far.
+        Across all four recorded editions, 187 teams and 543 participants have competed.
+      </p>
+    </div>
+  </div>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">About</span>
+        <h2>A contest for university students, run like the regionals</h2>
+        <p>
+          ICPC Hungary is the Hungarian national contest of the International Collegiate Programming
+          Contest — the oldest and largest algorithmic programming competition for university students
+          in the world. It is organised by the ELTE Faculty of Informatics.
+        </p>
+      </div>
+
+      <ul class="format-list">
+        <li><strong>Teams of three</strong>Students from the same university compete together.</li>
+        <li><strong>One computer</strong>All three members share a single workstation.</li>
+        <li><strong>12–13 problems</strong>Algorithmic tasks of increasing difficulty, in English.</li>
+        <li><strong>About five hours</strong>Solve as many problems as possible before time runs out.</li>
+        <li><strong>ICPC scoring</strong>Most problems solved wins; ties are broken by total penalty time.</li>
+        <li><strong>Live scoreboard</strong>Standings update during the contest, frozen near the end.</li>
+      </ul>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3>Rules and participation</h3>
+          <p>
+            ICPC Hungary follows the official ICPC Regional rules. The same rules govern eligibility,
+            team composition and official participation, so anything that applies at a regional contest
+            applies here too.
+          </p>
+          <a class="card-link" href="https://icpc.global/regionals/rules" target="_blank" rel="noopener">
+            Read the ICPC Regional rules
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="card">
+          <h3>Advancing to CERC</h3>
+          <p>
+            The top teams from each university advance to the Central European Regional Contest
+            (CERC), where they compete against the strongest teams from the wider region.
+          </p>
+          <a class="card-link" href="https://icpc.global/" target="_blank" rel="noopener">
+            About the ICPC
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="next">
+    <div class="wrap">
+      <div class="next">
+        <span class="kicker">Next edition</span>
+        <h2>ICPC Hungary 2027</h2>
+        <p>
+          The next Hungarian contest will be held in fall 2027, again with contest sites in Budapest
+          and Szeged. Teams from any Hungarian university are welcome; details on registration and
+          the exact date will be published here as they are confirmed.
+        </p>
+        <ul class="next-meta">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+            Fall 2027
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            Budapest &amp; Szeged
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M15 20a5 5 0 0 1 6.5-4.8"/></svg>
+            Teams of three
+          </li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:birka0@inf.elte.hu">
+          Contact the organisers
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="editions">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Past editions</span>
+        <h2>Results and scoreboards</h2>
+        <p>
+          Final standings for every recorded edition. Each scoreboard is the original DOMjudge page,
+          including per-problem results and team rosters.
+        </p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="editions">
+          <caption class="visually-hidden">ICPC Hungary past editions with dates, team and participant counts, winners and scoreboard links.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Edition</th>
+              <th scope="col">Date</th>
+              <th scope="col">Teams</th>
+              <th scope="col">Participants</th>
+              <th scope="col">Winner</th>
+              <th scope="col">Scoreboard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="latest">
+              <th scope="row" class="year">2026<span class="badge">Latest</span></th>
+              <td data-label="Date">17 October 2026</td>
+              <td data-label="Teams" class="num">49</td>
+              <td data-label="Participants" class="num">145</td>
+              <td data-label="Winner" class="winner">4-101 Trees<small>Eötvös Loránd University</small></td>
+              <td data-label="Scoreboard"><a class="score-link" href="2026/">View <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="year">2025</th>
+              <td data-label="Date">11 October 2025</td>
+              <td data-label="Teams" class="num">55</td>
+              <td data-label="Participants" class="num">159</td>
+              <td data-label="Winner" class="winner">Big as Hectic Dreaming<small>Eötvös Loránd University</small></td>
+              <td data-label="Scoreboard"><a class="score-link" href="2025/">View <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="year">2024</th>
+              <td data-label="Date">19 October 2024</td>
+              <td data-label="Teams" class="num">51</td>
+              <td data-label="Participants" class="num">144</td>
+              <td data-label="Winner" class="winner">ELTE 1<small>Eötvös Loránd University</small></td>
+              <td data-label="Scoreboard"><a class="score-link" href="2024/">View <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="year">2023</th>
+              <td data-label="Date">14 October 2023</td>
+              <td data-label="Teams" class="num">32</td>
+              <td data-label="Participants" class="num">95</td>
+              <td data-label="Winner" class="winner">ELTE 1<small>Eötvös Loránd University</small></td>
+              <td data-label="Scoreboard"><a class="score-link" href="2023/">View <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Team and participant counts are taken from the final standings of each scoreboard.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="venues">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Venues</span>
+        <h2>Two contest sites, one contest</h2>
+        <p>
+          ICPC Hungary is organised by the ELTE Faculty of Informatics and runs simultaneously at two
+          locations, with a single combined scoreboard.
+        </p>
+      </div>
+
+      <div class="venues">
+        <div class="venue">
+          <img src="assets/img/elte.png" alt="Eötvös Loránd University crest" width="62" height="62">
+          <div>
+            <p class="venue-city">Budapest</p>
+            <h3>Eötvös Loránd University</h3>
+            <p>Faculty of Informatics, host and organiser of the contest.</p>
+          </div>
+        </div>
+        <div class="venue">
+          <img src="assets/img/szeged.jpg" alt="University of Szeged crest" width="62" height="62">
+          <div>
+            <p class="venue-city">Szeged</p>
+            <h3>University of Szeged</h3>
+            <p>Second contest site, hosting teams from Szeged and the surrounding region.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sponsors">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Sponsors</span>
+        <h2>Supported by</h2>
+        <p>ICPC Hungary is made possible by the support of our partners.</p>
+      </div>
+
+      <div class="sponsors">
+        <a class="sponsor" href="https://www.huawei.com/" target="_blank" rel="noopener">
+          <img src="assets/img/huawei.png" alt="Huawei" width="266" height="60">
+          <span class="sponsor-name">Huawei</span>
+        </a>
+        <a class="sponsor" href="https://www.inf.elte.hu/" target="_blank" rel="noopener">
+          <img src="assets/img/elte-ik.svg" alt="ELTE Faculty of Informatics" width="255" height="75">
+          <span class="sponsor-name">ELTE Faculty of Informatics</span>
+        </a>
+        <a class="sponsor" href="https://elteshop.hu/" target="_blank" rel="noopener">
+          <img src="assets/img/elte-shop.png" alt="ELTE Shop" width="800" height="356">
+          <span class="sponsor-name">ELTE Shop</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <a class="brand" href="#top">
+        <img src="assets/img/icpc-mark.png" alt="" width="900" height="470">
+        <span>ICPC Hungary<small>Collegiate Programming</small></span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="mailto:birka0@inf.elte.hu">birka0@inf.elte.hu</a></li>
+        <li><a href="https://icpc.global/" target="_blank" rel="noopener">icpc.global</a></li>
+        <li><a href="https://icpc.global/regionals/rules" target="_blank" rel="noopener">Regional rules</a></li>
+        <li><a href="2026/">Latest scoreboard</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">
+      Organised by the ELTE Faculty of Informatics. Scoreboards generated with
+      <a href="https://www.domjudge.org/" target="_blank" rel="noopener">DOMjudge</a>.
+      ICPC and the ICPC logo are trademarks of the ICPC Foundation.
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a') && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
