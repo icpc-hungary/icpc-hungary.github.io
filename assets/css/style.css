@@ -314,6 +314,7 @@ table.editions .year { font-weight: 800; color: var(--navy); font-size: 1rem; }
 table.editions .num { font-variant-numeric: tabular-nums; }
 table.editions .winner { white-space: normal; min-width: 190px; }
 table.editions .winner small { display: block; color: var(--ink-muted); font-size: .82rem; }
+table.editions .nolink { font-weight: 600; color: var(--navy); font-size: 1rem; }
 table.editions tr.latest { background: #fffdf3; }
 table.editions tr.latest:hover { background: #fffaeb; }
 
@@ -362,6 +363,7 @@ table.editions tr.latest:hover { background: #fffaeb; }
     content: attr(data-label); display: block; margin-bottom: 2px; text-align: left;
   }
   table.editions td.winner small { text-align: left; }
+  table.editions .nolink { font-size: 1.15rem; margin-bottom: 10px; }
 }
 
 /* ---------- venues ---------- */
